@@ -1,0 +1,16 @@
+services:
+  app:
+    build:
+      context: .
+      dockerfile: .docker/Dockerfile
+    volumes:
+      - ./:/app
+    working_dir: /app/documentation
+    user: ${UID:-1000}:${GID:-1000}
+    command: hugo server --bind 0.0.0.0 # слушаем все интерфейсы
+    container_name: doc_app
+    environment:
+      - HOME=/app
+      - GOCACHE=/tmp/go-cache
+    ports:
+      - "1313:1313"
