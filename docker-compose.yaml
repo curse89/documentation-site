@@ -5,9 +5,9 @@ services:
       dockerfile: .docker/Dockerfile
     volumes:
       - ./:/app
-    working_dir: /app/documentation
+    working_dir: /app/docs
     user: ${UID:-1000}:${GID:-1000}
-    command: hugo server --bind 0.0.0.0 # слушаем все интерфейсы
+    command: hugo server --disableFastRender -D --bind 0.0.0.0 # слушаем все интерфейсы
     container_name: doc_app
     environment:
       - HOME=/app

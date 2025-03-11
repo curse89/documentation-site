@@ -1,0 +1,47 @@
+baseURL: https://example.org/
+languageCode: ru-ru
+title: Mortys
+defaultContentLanguage: ru
+
+module:
+  imports:
+    - path: github.com/imfing/hextra
+
+menu:
+  main:
+    - name: Документация
+      pageRef: /docs
+      weight: 1
+    - name: Блог
+      pageRef: /blog
+      weight: 2
+    - name: Search
+      weight: 4
+      params:
+        type: search
+    - name: GitHub
+      weight: 5
+      url: "https://github.com/curse89/documentation-site"
+      params:
+        icon: github
+
+  sidebar:
+    - name: More
+      params:
+        type: separator
+      weight: 1
+    - name: "About"
+      pageRef: "/about"
+      weight: 2
+    - name: "Hugo Docs ↗"
+      url: "https://gohugo.io/documentation/"
+      weight: 3
+
+params:
+  editURL:
+    enable: true
+    base: "https://github.com/curse89/documentation-site/edit/main"
+    
+    page:
+      # full (100%), wide (90rem), normal (1280px)
+      width: normal
